@@ -1,0 +1,18 @@
+{
+  "name": "mnsart",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "packageManager": "pnpm@11.24.0",
+  "engines": {
+    "node": ">=24.20.0 <25.x",
+    "pnpm": ">=11.24.0"
+  },
+  "description": "MNSArt is a creative agency site based in Ohio, USA, offering UI/UX design, web development, and custom digital projects for clients across the United States and Myanmar",
+  "keywords": [
+    "agency",
+    "web design",
+    "software engineering",
+    "digital design"
+  ]
+}

@@ -14,5 +14,20 @@
     "web design",
     "software engineering",
     "digital design"
-  ]
+  ],
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "lint": "turbo lint",
+    "format": "prettier --write .",
+    "test": "pnpm --color run test",
+    "clean": "turbo clean"
+  },
+  "devDependencies": {
+    "@manypkg/cli": "^0.25.1",
+    "prettier": "^3.9.6",
+    "syncpack": "^15.3.3",
+    "turbo": "^2.10.12",
+    "typescript": "^7.0.2"
+  }
 }

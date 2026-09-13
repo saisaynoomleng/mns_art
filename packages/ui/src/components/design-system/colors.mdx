@@ -1,0 +1,15 @@
+import { colors } from '#lib/colors';
+import { ColorPalette, ColorItem, Meta } from '@storybook/addon-docs/blocks';
+import { toTitleCase } from '@mnsart/utils';
+
+<Meta title="DesignSystem/Colors" />
+
+<ColorPalette>
+    <ColorItem title={toTitleCase('black')} colors={{'hex': '#191923'}}/>
+    <ColorItem title={toTitleCase('white')} colors={{'hex': '#fbfef9'}}/>
+
+    {Object.entries(colors).map(([title, colors]) => (
+        <ColorItem title={toTitleCase(title)} colors={colors} />
+    ))}
+
+</ColorPalette>

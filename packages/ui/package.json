@@ -16,6 +16,7 @@
     "#hooks/*": "./src/hooks/*.ts"
   },
   "dependencies": {
+    "@mnsart/utils": "workspace:*",
     "@base-ui/react": "^1.8.0",
     "@shadcn/react": "^0.3.1",
     "@tailwindcss/vite": "^4.3.3",

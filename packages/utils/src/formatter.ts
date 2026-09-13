@@ -63,7 +63,7 @@ export const replaceSpaceWithUnderscore = (input: string): string => {
  * @param date string | Date
  * @returns string
  */
-export const formatDate = (date: string | Date): string => {
+export const formatDateUS = (date: string | Date): string => {
   const parsedDate = new Date(date);
   return new Intl.DateTimeFormat('en-US', {
     day: 'numeric',
@@ -118,21 +118,22 @@ export const getImageExtension = (type: string) => {
 };
 
 /**
- * Return the size of the image in unit
+ * Format byte count into readable string
  * @param size number
  * @returns string
  */
 export const formatImageSize = (size: number): string => {
-  if (size > 1024 * 1024 * 1024) {
+  if (size >= 1024 * 1024 * 1024) {
     return `${(size / (1024 * 1024 * 1024)).toFixed(2)} GB`;
   }
 
-  if (size > 1024 * 1024) {
+  if (size >= 1024 * 1024) {
     return `${(size / (1024 * 1024)).toFixed(2)} MB`;
   }
 
-  if (size > 1024) {
+  if (size >= 1024) {
     return `${(size / 1024).toFixed(2)} KB`;
   }
+
   return `${size} B`;
 };

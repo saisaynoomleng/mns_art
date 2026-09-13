@@ -8,6 +8,11 @@ const meta: Meta<typeof Bounded> = {
   tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
+    docs: {
+      description: {
+        component: 'Component wrapper with default settings',
+      },
+    },
   },
 
   args: {

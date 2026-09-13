@@ -42,7 +42,7 @@ export const Bounded = <T extends React.ElementType>({
       data-testid="wrapper"
       className={twMerge(
         clsx(
-          'py-4 md:py-6 lg:py-10',
+          'py-4 md:py-6',
           paddingVariants[padding],
           spacingVariants[spacing],
           className,

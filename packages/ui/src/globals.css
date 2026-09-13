@@ -238,4 +238,15 @@
   body {
     @apply bg-background text-foreground overflow-x-hidden tracking-normal leading-normal text-fs-400 font-body;
   }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-balance leading-none;
+  }
+  p {
+    @apply text-pretty;
+  }
 }

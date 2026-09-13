@@ -55,6 +55,7 @@ MNSArt is a creative agency site based in Ohio, USA, offering UI/UX design, web 
 - Amazon EC2
 - Amazon ECR
 - Amazon SES
+- Amazon S3
 - AWS Secrets Manager
 - Amazon CloudFront
 - Certbot
@@ -72,12 +73,15 @@ MNSArt is a creative agency site based in Ohio, USA, offering UI/UX design, web 
 - User can get an audit by asking the AI Assistant, where the LLM performs the contact form submission in the background by asking the user questions
 - Portfolio / case studies section, content managed via Sanity CMS
 - Service pages for each offering (UI/UX design, web development, custom digital projects)
-- Client login area (using Better Auth) to view project status or deliverables
 - Testimonials / client logos section
 - Blog or insights section for SEO and thought leadership
 - Newsletter signup with automated emails via React Email
 - "Request a quote" or project inquiry form separate from the general contact form
 - Admin view for staff to see incoming contact/audit submissions
+- Client login area (using Better Auth) to view project status or deliverables
+  Testimonials / client logos section
+- Client can login, sign up, delete account
+- Client can change user info, profile image, password
 
 **Non-functional**
 
@@ -189,6 +193,7 @@ pnpm format   # format the codebase with prettier
 - **DNS management:** Namecheap
 - **Container registry:** AWS ECR
 - **Containerization:** Docker
+- **Storage:** S3
 - **Supporting AWS services:** SES, Secrets Manager
 - **TLS:** Certbot
 

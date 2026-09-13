@@ -5,10 +5,14 @@
   "type": "module",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "tsc -p tsconfig.build.json"
+    "build": "tsc -p tsconfig.build.json",
+    "test:watch": "vitest",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage"
   },
   "devDependencies": {
     "typescript": "^7.0.2",
+    "vite-tsconfig-paths": "^6.1.1",
     "vitest": "^5.0.0"
   }
 }

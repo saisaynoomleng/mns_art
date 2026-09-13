@@ -1,0 +1,14 @@
+{
+  "name": "@mnsart/utils",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.0"
+  }
+}

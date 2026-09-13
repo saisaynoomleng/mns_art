@@ -96,16 +96,6 @@ export const getFormattedYear = (date: string | Date): string => {
  */
 export const isImageTooLarge = (size: number): boolean => size > 1024 * 1024;
 
-export const ALLOWED_IMAGE_TYPES = [
-  'image/png',
-  'image/jpg',
-  'image/jpeg',
-  'image/webp',
-  'image/avif',
-  'image/svg',
-  'image/gif',
-];
-
 /**
  * Extract image file extension from MIME type
  * @param type string

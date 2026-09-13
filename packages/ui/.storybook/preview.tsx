@@ -1,4 +1,7 @@
 import type { Preview } from '@storybook/react-vite';
+import '../src/globals.css';
+
+import { withThemeByClassName } from '@storybook/addon-themes';
 
 const preview: Preview = {
   parameters: {
@@ -16,6 +19,20 @@ const preview: Preview = {
       test: 'todo',
     },
   },
+  decorators: [
+    withThemeByClassName({
+      defaultTheme: 'dark',
+      themes: {
+        light: 'light',
+        dark: 'dark',
+      },
+    }),
+    (Story) => (
+      <>
+        <Story />
+      </>
+    ),
+  ],
 };
 
 export default preview;

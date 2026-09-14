@@ -127,3 +127,16 @@ export const formatImageSize = (size: number): string => {
 
   return `${size} B`;
 };
+
+/**
+ * Convert number into USD currency
+ * @param price number
+ * @returns string
+ * @example formatPriceInUSD(200) // $200.00
+ */
+export const formatPriceInUSD = (price: number): string => {
+  return new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'usd',
+  }).format(price);
+};

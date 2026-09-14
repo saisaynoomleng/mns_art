@@ -17,4 +17,12 @@ export default defineConfig({
   schema: {
     types: schemaTypes,
   },
+
+  document: {
+    newDocumentOptions: (prev) => {
+      return prev.filter(
+        (template) => !['siteSetting'].includes(template.templateId),
+      );
+    },
+  },
 });

@@ -200,14 +200,15 @@ export const navLink = defineType({
       label: 'label',
       isButton: 'isButton',
       isExternal: 'isExternal',
+      href: 'href',
     },
-    prepare({ label, isButton, isExternal }) {
+    prepare({ label, isButton, isExternal, href }) {
       const formatLabel = label ? toTitleCase(label) : 'Label not provided';
       const button = !isButton ? 'Link Type' : 'Button Type';
       const external = isExternal ? 'Exteranl Link' : 'Internal Link';
 
       return {
-        title: formatLabel,
+        title: `${formatLabel} (${href})`,
         subtitle: `Type: ${button} | Route: ${external}`,
         media: MdAddLink,
       };
@@ -226,12 +227,13 @@ export const footerColumn = defineType({
     defineField({
       name: 'links',
       type: 'array',
+      icon: MdAddLink,
       of: [
         defineArrayMember({
           type: 'object',
           fields: [
             defineField({
-              name: 'lable',
+              name: 'label',
               type: 'string',
             }),
             defineField({
@@ -239,6 +241,23 @@ export const footerColumn = defineType({
               type: 'string',
             }),
           ],
+          preview: {
+            select: {
+              label: 'label',
+              href: 'href',
+            },
+            prepare({ label, href }) {
+              const formatLabel = label
+                ? toTitleCase(label)
+                : 'Link label not provided';
+
+              return {
+                title: formatLabel,
+                subtitle: `${href}`,
+                media: MdAddLink,
+              };
+            },
+          },
         }),
       ],
     }),

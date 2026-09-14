@@ -7,8 +7,10 @@ import {
   seo,
   socialLink,
 } from './sharedType';
+import { siteSetting } from './singletons/site-setting';
 
 export const schemaTypes = [
+  // shared Types
   imageWithAlt,
   blockContent,
   seo,
@@ -16,4 +18,9 @@ export const schemaTypes = [
   faq,
   navLink,
   footerColumn,
+
+  // Singletons
+  siteSetting,
+
+  // Documents
 ];

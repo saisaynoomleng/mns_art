@@ -1,7 +1,6 @@
 import type { Preview } from '@storybook/react-vite';
 import '../src/globals.css';
-
-import { withThemeByClassName } from '@storybook/addon-themes';
+import { Toaster } from '../src/components/ui/sonner';
 
 const preview: Preview = {
   parameters: {
@@ -20,16 +19,22 @@ const preview: Preview = {
     },
   },
   decorators: [
-    withThemeByClassName({
-      defaultTheme: 'dark',
-      themes: {
-        light: 'light',
-        dark: 'dark',
-      },
-    }),
+    // withThemeByClassName({
+    //   defaultTheme: 'dark',
+    //   themes: {
+    //     light: 'light',
+    //     dark: 'dark',
+    //   },
+    // }),
     (Story) => (
       <>
         <Story />
+        <Toaster
+          richColors
+          closeButton
+          position="bottom-center"
+          duration={2000}
+        />
       </>
     ),
   ],

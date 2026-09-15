@@ -84,6 +84,7 @@ export const ContactForm = ({
   return (
     <FormContainer>
       <form
+        noValidate
         className={twMerge(
           clsx('grid md:grid-cols-2 gap-x-6 gap-y-8', className),
         )}
@@ -235,7 +236,7 @@ export const ContactForm = ({
           )}
         />
 
-        <Field>
+        <Field orientation="horizontal">
           <ArrowButton label="Notify Us" />
         </Field>
       </form>

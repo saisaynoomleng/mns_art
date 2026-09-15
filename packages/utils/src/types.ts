@@ -26,3 +26,12 @@ export type ActionResponse<T> =
  */
 export type ImageResponse =
   { success: true; file: File } | { success: false; message: string };
+
+/**
+ * Password Rule
+ */
+export type PasswordRule = {
+  id: string;
+  label: string;
+  test: (value: string) => boolean;
+};

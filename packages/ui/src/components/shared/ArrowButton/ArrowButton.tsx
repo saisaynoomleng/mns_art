@@ -1,16 +1,18 @@
 import { Button } from '#components/ui/button';
 import { clsx, twMerge } from 'cn';
-import React from 'react';
+import React, { ComponentPropsWithoutRef } from 'react';
 import { FaArrowAltCircleRight } from 'react-icons/fa';
 
 type ArrowButtonProps = {
   className?: string;
-  label: string;
-};
+  label: React.ReactNode;
+  disabled?: boolean;
+} & Omit<ComponentPropsWithoutRef<'button'>, 'className'>;
 
 export const ArrowButton = ({
   className,
   label,
+  disabled,
 }: ArrowButtonProps): React.JSX.Element => {
   return (
     <div className={twMerge(clsx('group flex items-center', className))}>
@@ -31,7 +33,10 @@ export const ArrowButton = ({
         />
       </span>
 
-      <Button className="transition-transform duration-300 delay-100">
+      <Button
+        className="transition-transform duration-300 delay-100"
+        disabled={disabled}
+      >
         {label}
       </Button>
 

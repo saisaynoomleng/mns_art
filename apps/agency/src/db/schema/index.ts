@@ -9,3 +9,5 @@ export * from './newsletter.schema';
 export * from './testimonials.schema';
 export * from './artworks.schema';
 export * from './careplans.schema';
+export * from './user-care-plan.schema';
+export * from './invoice.schema';

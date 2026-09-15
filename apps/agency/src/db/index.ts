@@ -13,7 +13,7 @@ const createPool = () => {
   });
 
   pool.on('error', (error) => {
-    console.log('Pool Error', JSON.stringify(error, null, 2));
+    console.error('Pool Error', error.message, error.stack);
   });
 
   return pool;
@@ -27,6 +27,10 @@ if (process.env.NODE_ENV === 'development') {
   client = createPool();
 }
 
-const db = drizzle({ client, relations, logger: true });
+const db = drizzle({
+  client,
+  relations,
+  logger: process.env.NODE_ENV === 'development',
+});
 export default db;
 export * as schema from './schema';

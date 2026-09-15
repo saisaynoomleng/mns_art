@@ -24,7 +24,7 @@ export const ArrowButton = ({
         <FaArrowAltCircleRight
           size={30}
           className="
-        shrink-0 scale-0 text-primary
+        shrink-0 scale-0 text-secondary
         transition-transform duration-300
         group-hover:scale-100
       "
@@ -45,7 +45,7 @@ export const ArrowButton = ({
         <FaArrowAltCircleRight
           size={30}
           className="
-        shrink-0 scale-100 text-primary
+        shrink-0 scale-100 text-secondary
         transition-transform duration-300
         group-hover:scale-0
       "

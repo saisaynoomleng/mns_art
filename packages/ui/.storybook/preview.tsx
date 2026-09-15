@@ -27,7 +27,7 @@ const preview: Preview = {
     //   },
     // }),
     (Story) => (
-      <>
+      <main className="bg-background">
         <Story />
         <Toaster
           richColors
@@ -35,7 +35,7 @@ const preview: Preview = {
           position="bottom-center"
           duration={2000}
         />
-      </>
+      </main>
     ),
   ],
 };

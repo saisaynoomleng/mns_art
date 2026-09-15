@@ -16,7 +16,38 @@ const meta: Meta<typeof SectionTitle> = {
   },
 
   args: { size: 'sm', label: 'Where art meets enginering' },
-  argTypes: {},
+  argTypes: {
+    className: {
+      control: 'text',
+      description: 'Additional TailwindCSS classes',
+    },
+
+    label: {
+      control: 'text',
+      description: 'Section title text',
+    },
+
+    size: {
+      control: 'radio',
+      options: ['sm', 'md', 'lg'],
+      table: {
+        type: {
+          summary: 'Default font sizes for the headings',
+          detail: `
+              sm: 'text-fs-500 md:text-fs-600 lg:text-fs-700',
+              md: 'text-fs-600 md:text-fs-700 lg:text-fs-800',
+              lg: 'text-fs-700 md:text-fs-800 lg:text-fs-900',
+          `,
+        },
+      },
+    },
+
+    as: {
+      control: 'radio',
+      options: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
+      description: 'Semantic headings to be rendered, default to h3',
+    },
+  },
 };
 
 export default meta;

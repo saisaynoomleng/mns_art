@@ -81,17 +81,14 @@ export const NewsletterForm = ({
                 placeholder="johndoe@example.com"
                 aria-invalid={fieldState.invalid}
               />
-              {fieldState.invalid && (
-                <FieldError
-                  className="text-background"
-                  errors={[fieldState.error]}
-                />
-              )}
+              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
             </Field>
           )}
         />
 
-        <ArrowButton label="Subscribe" />
+        <Field orientation="responsive">
+          <ArrowButton label="Subscribe" />
+        </Field>
       </form>
     </FormContainer>
   );

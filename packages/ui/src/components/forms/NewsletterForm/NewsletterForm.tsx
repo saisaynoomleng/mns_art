@@ -53,6 +53,7 @@ export const NewsletterForm = ({
   return (
     <FormContainer>
       <form
+        noValidate
         onSubmit={form.handleSubmit(onSubmit)}
         className={twMerge(
           clsx('flex flex-col justify-center items-center gap-y-4', className),
@@ -86,7 +87,7 @@ export const NewsletterForm = ({
           )}
         />
 
-        <Field orientation="responsive">
+        <Field orientation="horizontal">
           <ArrowButton label="Subscribe" />
         </Field>
       </form>

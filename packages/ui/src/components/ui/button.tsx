@@ -9,7 +9,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default: cn(
-          'bg-brand-primary-100 text-brand-secondary-900 font-bold capitalize relative overflow-hidden hover:text-brand-black',
+          'bg-brand-primary-100 text-brand-black font-bold capitalize relative overflow-hidden isolate hover:text-brand-black',
           'after:absolute group-hover:after:translate-y-0 hover:after:translate-y-0',
           'after:inset-0 after:bg-brand-secondary-400 after:z-10 after:translate-y-full after:transition-transform after:duration-400 after:ease-in-out after:rounded-2xl',
         ),
@@ -49,18 +49,20 @@ function Button({
   variant = 'default',
   size = 'default',
   asChild = false,
+  cursorText = 'Click',
   children,
   ...props
 }: React.ComponentProps<'button'> &
   VariantProps<typeof buttonVariants> & {
     asChild?: boolean;
+    cursorText?: string;
   }) {
   const Comp = asChild ? Slot.Root : 'button';
 
   return (
     <Comp
       data-cursor="click"
-      data-cursor-text="Click Me!"
+      data-cursor-text={cursorText}
       data-slot="button"
       data-variant={variant}
       data-size={size}

@@ -25,12 +25,16 @@ export const SectionTitle = <T extends Headings>({
   size = 'sm',
   ...props
 }: SectionTitle<T>): React.JSX.Element => {
-  const Comp = as ?? 'h2';
+  const Comp = as ?? 'h3';
 
   return (
     <Comp
       className={twMerge(
-        clsx('uppercase font-bold', sizeVariants[size], className),
+        clsx(
+          'uppercase font-bold first-letter:font-heading first-letter:text-fs-600 first-letter:text-brand-secondary-500',
+          sizeVariants[size],
+          className,
+        ),
       )}
       {...props}
       tabIndex={0}

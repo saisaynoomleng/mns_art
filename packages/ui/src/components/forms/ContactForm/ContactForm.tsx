@@ -1,0 +1,244 @@
+'use client';
+
+import { FormContainer } from '#components/shared/FormContainer/FormContainer';
+import React from 'react';
+import { ArrowButton, SectionTitle } from '../../shared';
+import {
+  ActionResponse,
+  ContactFormInput,
+  ContactFormOutput,
+  ContactFormSchema,
+} from '@mnsart/utils';
+import { Controller, SubmitHandler, useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { toast } from 'sonner';
+import { clsx, twMerge } from 'cn';
+import {
+  Field,
+  FieldContent,
+  FieldDescription,
+  FieldError,
+  FieldLabel,
+} from '#components/ui/field';
+import { Input } from '#components/ui/input';
+import {
+  Select,
+  SelectTrigger,
+  SelectValue,
+  SelectContent,
+  SelectItem,
+} from '#components/ui/select';
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupText,
+  InputGroupTextarea,
+} from '#components/ui/input-group';
+
+type ContactFormProps = {
+  className?: string;
+  action: (
+    data: ContactFormInput,
+  ) => Promise<ActionResponse<ContactFormOutput>>;
+};
+
+const SERVICES = [
+  { name: 'Web Development', value: 'web-development' },
+  { name: 'Product Design UI/UX', value: 'ui-ux' },
+  { name: 'Custom Projects', value: 'custom' },
+];
+
+export const ContactForm = ({
+  className,
+  action,
+}: ContactFormProps): React.JSX.Element => {
+  const form = useForm<ContactFormInput>({
+    resolver: zodResolver(ContactFormSchema),
+    defaultValues: {
+      name: '',
+      email: '',
+      message: '',
+      minBudget: 1,
+      maxBudget: 100,
+      service: 'web-development',
+    },
+  });
+
+  const onSubmit: SubmitHandler<ContactFormInput> = async (data) => {
+    const result = await action(data);
+
+    if (!result.success) {
+      toast.error(result.message);
+
+      form.setError(result.field as keyof ContactFormInput, {
+        message: result.message,
+      });
+
+      return;
+    }
+
+    toast.success(result.message);
+    form.reset();
+  };
+
+  return (
+    <FormContainer>
+      <form
+        className={twMerge(
+          clsx('grid md:grid-cols-2 gap-x-6 gap-y-8', className),
+        )}
+        onSubmit={form.handleSubmit(onSubmit)}
+      >
+        <div className="space-y-1 col-span-full">
+          <SectionTitle label={`Your next project starts here.`} />
+          <p className="text-fs-300">
+            From bold ideas to complex digital products, we turn concepts into
+            thoughtful, high-performing experiences. Share the details and
+            let&apos;s see what we can create together.
+          </p>
+        </div>
+
+        <Controller
+          name="name"
+          control={form.control}
+          render={({ field, fieldState }) => (
+            <Field>
+              <FieldLabel htmlFor="name">Name</FieldLabel>
+              <Input
+                {...field}
+                type="text"
+                id="name"
+                placeholder="john doe"
+                aria-invalid={fieldState.invalid}
+              />
+              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+            </Field>
+          )}
+        />
+
+        <Controller
+          name="email"
+          control={form.control}
+          render={({ field, fieldState }) => (
+            <Field>
+              <FieldLabel htmlFor="email">Email</FieldLabel>
+              <Input
+                {...field}
+                type="email"
+                id="email"
+                placeholder="johndoe@mail.com"
+                aria-invalid={fieldState.invalid}
+              />
+              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+            </Field>
+          )}
+        />
+
+        <Controller
+          name="minBudget"
+          control={form.control}
+          render={({ field, fieldState }) => (
+            <Field>
+              <FieldLabel htmlFor="minBudget">Minimum Budget</FieldLabel>
+              <Input
+                {...field}
+                value={field.value as number}
+                type="number"
+                id="minBudget"
+                placeholder="500"
+                aria-invalid={fieldState.invalid}
+              />
+              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+            </Field>
+          )}
+        />
+
+        <Controller
+          name="maxBudget"
+          control={form.control}
+          render={({ field, fieldState }) => (
+            <Field>
+              <FieldLabel htmlFor="maxBudget">Maximum Budget</FieldLabel>
+              <Input
+                {...field}
+                value={field.value as number}
+                type="number"
+                id="maxBudget"
+                placeholder="500"
+                aria-invalid={fieldState.invalid}
+              />
+              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+            </Field>
+          )}
+        />
+
+        <Controller
+          name="service"
+          control={form.control}
+          render={({ field, fieldState }) => (
+            <Field className="col-span-full" aria-invalid={fieldState.invalid}>
+              <FieldContent>
+                <FieldLabel htmlFor="service">Service</FieldLabel>
+                <FieldDescription>
+                  For a better scope, please select the type of projects you are
+                  looking into
+                </FieldDescription>
+              </FieldContent>
+
+              <Select
+                name={field.name}
+                value={field.value ?? 'web-development'}
+                onValueChange={field.onChange}
+                defaultValue="web-development"
+              >
+                <SelectTrigger
+                  id="service"
+                  aria-invalid={fieldState.invalid}
+                  className="w-full"
+                >
+                  <SelectValue placeholder="Select a service" />
+                </SelectTrigger>
+
+                <SelectContent>
+                  {SERVICES.map((s) => (
+                    <SelectItem key={s.name} value={s.value}>
+                      {s.name}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </Field>
+          )}
+        />
+
+        <Controller
+          name="message"
+          control={form.control}
+          render={({ field, fieldState }) => (
+            <Field className="col-span-full">
+              <FieldLabel htmlFor="message">Message</FieldLabel>
+              <InputGroup>
+                <InputGroupTextarea
+                  {...field}
+                  id="message"
+                  maxLength={3000}
+                  aria-invalid={fieldState.invalid}
+                />
+                <InputGroupAddon align="block-end">
+                  <InputGroupText className="text-background/60">
+                    {field.value.length} / 3000
+                  </InputGroupText>
+                </InputGroupAddon>
+              </InputGroup>
+              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+            </Field>
+          )}
+        />
+
+        <Field>
+          <ArrowButton label="Notify Us" />
+        </Field>
+      </form>
+    </FormContainer>
+  );
+};

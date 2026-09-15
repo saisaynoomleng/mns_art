@@ -86,7 +86,6 @@ export const auth = betterAuth({
       accounts: AccountTable,
       verifications: VerificationTable,
     },
-    usePlural: true,
   }),
 
   emailVerification: {

@@ -14,7 +14,7 @@ export const timestamps = {
     .$onUpdate(() => new Date()),
 };
 
-export const contactStatus = t.pgEnum('contactStatus', [
+export const contactStatus = t.pgEnum('contact_status', [
   'new',
   'in_progress',
   'replied',
@@ -22,13 +22,24 @@ export const contactStatus = t.pgEnum('contactStatus', [
   'resolved',
 ]);
 
-export const testimonialStatus = t.pgEnum('testimonialStatus', [
+export const contactService = t.pgEnum('contact_service', [
+  'web-development',
+  'ui-ux',
+  'custom',
+]);
+
+export const contactMessageDirection = t.pgEnum('contact_message_direction', [
+  'inbound',
+  'outbound',
+]);
+
+export const testimonialStatus = t.pgEnum('testimonial_status', [
   'new',
   'reviewed',
   'spam',
 ]);
 
-export const artworkStatus = t.pgEnum('artworkStatus', [
+export const artworkStatus = t.pgEnum('artwork_status', [
   'on_call',
   'concept',
   'prototype',
@@ -37,7 +48,7 @@ export const artworkStatus = t.pgEnum('artworkStatus', [
   'finished',
 ]);
 
-export const appCareStatus = t.pgEnum('appCareStatus', [
+export const appCareStatus = t.pgEnum('app_care_status', [
   'active',
   'incomplete',
   'incomplete_expired',
@@ -46,4 +57,20 @@ export const appCareStatus = t.pgEnum('appCareStatus', [
   'canceled',
   'paused',
   'unpaid',
+]);
+
+export const invoiceSourceType = t.pgEnum('invoiceSourceType', [
+  'care_plan',
+  'project_deposit',
+  'project_balance',
+  'one_off',
+]);
+
+export const invoiceStatus = t.pgEnum('invoiceStatus', [
+  'draft',
+  'open',
+  'paid',
+  'void',
+  'uncollectible',
+  'refunded',
 ]);

@@ -30,6 +30,8 @@ export const MainNav = ({ className, navLinks }: MainNavProps) => {
     session?.user?.image ??
     `https://placehold.co/50?text=${session?.user?.name?.charAt(0)}`;
 
+  const isPlaceholder = userImg.includes('placehold.co');
+
   return (
     <div className={twMerge(clsx('', className))}>
       <div className="flex gap-x-2 items-center">
@@ -42,6 +44,7 @@ export const MainNav = ({ className, navLinks }: MainNavProps) => {
                 width={30}
                 height={30}
                 className="rounded-full"
+                unoptimized={isPlaceholder}
               />
             </Link>
           </button>

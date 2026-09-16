@@ -1,15 +1,18 @@
-@import 'tailwindcss';
+@import '@mnsart/ui/styles';
+@source '../../../../packages/ui/**/*.{js,ts,jsx,tsx}';
 
-.has-custom-cursor,
-.has-custom-cursor * {
-  cursor: none !important;
+@theme {
+  /* font families */
+  --font-albert-sans: var(--font-albert-sans);
+  --font-unbounded: var(--font-unbounded);
+  --font-shadows: var(--font-shadows);
 }
 
-.has-custom-cursor {
-  scrollbar-gutter: stable;
-}
-
-.has-custom-cursor::-webkit-scrollbar,
-.has-custom-cursor *::-webkit-scrollbar {
-  cursor: auto;
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply font-albert-sans text-fs-400 overflow-x-hidden min-h-screen leading-normal tracking-normal bg-background text-foreground;
+  }
 }

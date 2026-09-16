@@ -8,7 +8,8 @@
     ".": {
       "import": "./dist/index.js",
       "types": "./dist/index.d.ts"
-    }
+    },
+    "./styles": "./src/globals.css"
   },
   "imports": {
     "#components/*": "./src/components/*.tsx",

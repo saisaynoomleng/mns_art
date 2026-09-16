@@ -1,3 +1,5 @@
+'use client';
+
 import { FormContainer } from '#components/shared/FormContainer/FormContainer';
 import React from 'react';
 import { ArrowButton, SectionTitle } from '../../shared';

@@ -46,6 +46,7 @@ export const auth = betterAuth({
     fields: {
       name: 'name',
       email: 'email',
+      image: 'imageUrl',
     },
     changeEmail: {
       enabled: true,

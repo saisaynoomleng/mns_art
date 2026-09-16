@@ -25,7 +25,7 @@ const SignUpVerificationEmail = ({
           <title>Sign Up Verification Email</title>
         </head>
 
-        <Body className="bg-black text-white font-body leading-normal tracking-normal overflow-hidden">
+        <Body className="bg-brand_black text-brand_white font-body leading-normal tracking-normal overflow-hidden">
           <Preview>Verify your email to finish signing up.</Preview>
 
           <Container className="mx-auto max-w-160">

@@ -35,3 +35,9 @@ export type PasswordRule = {
   label: string;
   test: (value: string) => boolean;
 };
+
+/**
+ * Project Status
+ */
+export type ProjectStatus =
+  'on_call' | 'concept' | 'prototype' | 'developing' | 'review' | 'finished';

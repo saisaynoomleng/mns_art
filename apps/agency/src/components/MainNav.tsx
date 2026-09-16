@@ -33,24 +33,26 @@ export const MainNav = ({ className, navLinks }: MainNavProps) => {
   return (
     <div className={twMerge(clsx('', className))}>
       <div className="flex gap-x-2 items-center">
-        <div>
-          {isSignedIn ? (
-            <button className="rounded-full">
-              <Link href="/user" className="relative z-20">
-                <Image src={userImg} alt="" width={50} height={50} />
-              </Link>
-            </button>
-          ) : (
-            <Button asChild>
-              <Link href="/sign-in" className="relative z-20">
-                Sign In
-              </Link>
-            </Button>
-          )}
-        </div>
-
+        {isSignedIn ? (
+          <button className="rounded-full">
+            <Link href="/user" className="relative z-20">
+              <Image
+                src={userImg}
+                alt=""
+                width={30}
+                height={30}
+                className="rounded-full"
+              />
+            </Link>
+          </button>
+        ) : (
+          <Button asChild>
+            <Link href="/sign-in" className="relative z-20">
+              Sign In
+            </Link>
+          </Button>
+        )}
         <Separator orientation="vertical" className="max-md:hidden" />
-
         {navOpen ? (
           <Button
             onClick={() => setNavOpen(false)}

@@ -81,3 +81,22 @@ export type SignUpFormInput = z.input<typeof SignUpFormSchema>;
  * Sign Up Form Output Type
  */
 export type SignUpFormOutput = z.output<typeof SignUpFormSchema>;
+
+/**
+ * Validate Sign In Form Schema
+ */
+export const SignInFormSchema = z.object({
+  email: z
+    .email({ error: 'Must be a valid email address' })
+    .min(1, { error: 'Email is required' }),
+  password: z.string(),
+  rememberMe: z.boolean().default(false),
+});
+/**
+ * Sign in Form Input Type
+ */
+export type SignInFormInput = z.input<typeof SignInFormSchema>;
+/**
+ * Sign In Form Ouput Types
+ */
+export type SignInFormOutput = z.output<typeof SignInFormSchema>;

@@ -20,7 +20,6 @@ import {
   FieldError,
   FieldLabel,
 } from '#components/ui/field';
-import { Input } from '#components/ui/input';
 import {
   Select,
   SelectTrigger,
@@ -34,6 +33,7 @@ import {
   InputGroupText,
   InputGroupTextarea,
 } from '#components/ui/input-group';
+import { FormTextField } from '../FormTextField';
 
 type ContactFormProps = {
   className?: string;
@@ -99,78 +99,33 @@ export const ContactForm = ({
           </p>
         </div>
 
-        <Controller
+        <FormTextField
           name="name"
+          label="Name"
+          autoComplete="name"
           control={form.control}
-          render={({ field, fieldState }) => (
-            <Field>
-              <FieldLabel htmlFor="name">Name</FieldLabel>
-              <Input
-                {...field}
-                type="text"
-                id="name"
-                placeholder="john doe"
-                aria-invalid={fieldState.invalid}
-              />
-              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
-            </Field>
-          )}
         />
 
-        <Controller
+        <FormTextField
           name="email"
+          label="Email"
+          autoComplete="email"
+          type="email"
           control={form.control}
-          render={({ field, fieldState }) => (
-            <Field>
-              <FieldLabel htmlFor="email">Email</FieldLabel>
-              <Input
-                {...field}
-                type="email"
-                id="email"
-                placeholder="johndoe@mail.com"
-                aria-invalid={fieldState.invalid}
-              />
-              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
-            </Field>
-          )}
         />
 
-        <Controller
+        <FormTextField
           name="minBudget"
+          label="Minimum Budget"
+          type="number"
           control={form.control}
-          render={({ field, fieldState }) => (
-            <Field>
-              <FieldLabel htmlFor="minBudget">Minimum Budget</FieldLabel>
-              <Input
-                {...field}
-                value={field.value as number}
-                type="number"
-                id="minBudget"
-                placeholder="500"
-                aria-invalid={fieldState.invalid}
-              />
-              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
-            </Field>
-          )}
         />
 
-        <Controller
+        <FormTextField
           name="maxBudget"
+          label="Maximum Budget"
+          type="number"
           control={form.control}
-          render={({ field, fieldState }) => (
-            <Field>
-              <FieldLabel htmlFor="maxBudget">Maximum Budget</FieldLabel>
-              <Input
-                {...field}
-                value={field.value as number}
-                type="number"
-                id="maxBudget"
-                placeholder="500"
-                aria-invalid={fieldState.invalid}
-              />
-              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
-            </Field>
-          )}
         />
 
         <Controller

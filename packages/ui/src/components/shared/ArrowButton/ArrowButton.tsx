@@ -7,12 +7,14 @@ type ArrowButtonProps = {
   className?: string;
   label: React.ReactNode;
   disabled?: boolean;
+  testId?: string;
 } & Omit<ComponentPropsWithoutRef<'button'>, 'className'>;
 
 export const ArrowButton = ({
   className,
   label,
   disabled,
+  testId,
 }: ArrowButtonProps): React.JSX.Element => {
   return (
     <div className={twMerge(clsx('group flex items-center', className))}>
@@ -34,6 +36,7 @@ export const ArrowButton = ({
       </span>
 
       <Button
+        data-testid={testId}
         className="transition-transform duration-300 delay-100"
         disabled={disabled}
       >

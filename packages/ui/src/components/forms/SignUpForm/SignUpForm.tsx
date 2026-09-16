@@ -1,7 +1,7 @@
 import { FormContainer } from '#components/shared/FormContainer/FormContainer';
 import React from 'react';
 import { ArrowButton, SectionTitle } from '../../shared';
-import { Controller, SubmitHandler, useForm, useWatch } from 'react-hook-form';
+import { SubmitHandler, useForm, useWatch } from 'react-hook-form';
 import { CallToAction, SignUpFormInput, SignUpFormSchema } from '@mnsart/utils';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { clsx, twMerge } from 'cn';
@@ -46,6 +46,7 @@ export const SignUpForm = ({
   const handleFormSubmit: SubmitHandler<SignUpFormInput> = async (data) => {
     try {
       await onSubmit(data);
+      form.reset();
     } catch (err) {
       toast.error('Something went wrong');
       form.setError('root', {
@@ -138,16 +139,10 @@ export const SignUpForm = ({
 
             <Field orientation="horizontal">
               <ArrowButton
-                data-testid="sign up button"
+                testId="sign up"
                 disabled={form.formState.isSubmitting}
                 label={
-                  form.formState.isSubmitting ? (
-                    <span>
-                      <LoadingSpinner />
-                    </span>
-                  ) : (
-                    <span>Sign Up Now</span>
-                  )
+                  form.formState.isSubmitting ? <LoadingSpinner /> : 'sign up'
                 }
               />
             </Field>
@@ -156,12 +151,12 @@ export const SignUpForm = ({
 
         <p className="flex items-center self-end gap-x-1 text-fs-300">
           Already a member?
-          <span className="underline decoration-2 decoration-secondary">
+          <Button asChild type="button" variant="link">
             {renderSignIn({
               label: singInAction.label,
               href: singInAction.href,
             })}
-          </span>
+          </Button>
         </p>
       </div>
     </FormContainer>

@@ -8,11 +8,30 @@ import {
   UserTable,
   VerificationTable,
 } from '@/db/schema';
-import { admin } from 'better-auth/plugins';
+import { admin, emailOTP } from 'better-auth/plugins';
 import { nextCookies } from 'better-auth/next-js';
 
 export const auth = betterAuth({
-  plugins: [admin(), nextCookies()],
+  plugins: [
+    admin(),
+    emailOTP({
+      sendVerificationOTP: async ({ email, otp, type }) => {
+        if (type === 'forget-password') {
+          // send forget password otp
+        } else if (type === 'change-email') {
+          // send change email otp
+        }
+      },
+      sendVerificationOnSignUp: true,
+      overrideDefaultEmailVerification: true,
+      otpLength: 6,
+      expiresIn: 60 * 5,
+      changeEmail: {
+        enabled: true,
+      },
+    }),
+    nextCookies(),
+  ],
 
   appName: 'MNS Art',
 
@@ -30,9 +49,6 @@ export const auth = betterAuth({
     },
     changeEmail: {
       enabled: true,
-      updateEmailWithoutVerification: false,
-
-      sendChangeEmailConfirmation: async ({ user, url }) => {},
     },
     deleteUser: {
       enabled: true,
@@ -104,10 +120,6 @@ export const auth = betterAuth({
     autoSignIn: true,
     resetPasswordTokenExpiresIn: 60 * 15,
     revokeSessionsOnPasswordReset: true,
-
-    sendResetPassword: async ({ user, url }) => {},
-
-    onExistingUserSignUp: async () => {},
   },
 
   socialProviders: {
@@ -132,7 +144,7 @@ export const auth = betterAuth({
     disabled: false,
     disableColors: false,
     level: 'warn',
-    log: (level, message, ...args) => {
+    log: (level) => {
       console.log(level);
     },
   },

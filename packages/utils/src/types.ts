@@ -41,3 +41,13 @@ export type PasswordRule = {
  */
 export type ProjectStatus =
   'on_call' | 'concept' | 'prototype' | 'developing' | 'review' | 'finished';
+
+/**
+ * Receipt Email Types
+ */
+export type ReceiptEmailType = {
+  item: string;
+  amount: number;
+  date: Date | string;
+  paymentMethod: string;
+};

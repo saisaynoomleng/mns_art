@@ -36,10 +36,14 @@ export type PasswordRule = {
   test: (value: string) => boolean;
 };
 
+// ========================
+// Email
+// ========================
+
 /**
- * Project Status
+ * Project Status Email Types
  */
-export type ProjectStatus =
+export type ProjectStatusType =
   'on_call' | 'concept' | 'prototype' | 'developing' | 'review' | 'finished';
 
 /**
@@ -50,4 +54,20 @@ export type ReceiptEmailType = {
   amount: number;
   date: Date | string;
   paymentMethod: string;
+};
+
+/**
+ * Reset Password Email Types
+ */
+export type ResetPasswordType = {
+  otp: string;
+  expiresAt: number;
+};
+
+/**
+ * Sign Up Verification Email Types
+ */
+export type SignUpVerificationType = {
+  expiresAt: number;
+  url: string;
 };

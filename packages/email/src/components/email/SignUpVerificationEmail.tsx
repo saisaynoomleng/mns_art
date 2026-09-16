@@ -12,12 +12,12 @@ import {
 import tailwindConfig from '../utils/tailwindConfig';
 import { LinkEmail } from '../utils/LinkEmail';
 import { LogoEmail } from '../utils/LogoEmail';
+import { SignUpVerificationType } from '@mnsart/utils';
 
 const SignUpVerificationEmail = ({
   url,
-}: {
-  url: string;
-}): React.JSX.Element => {
+  expiresAt = 15,
+}: SignUpVerificationType): React.JSX.Element => {
   return (
     <Tailwind config={tailwindConfig}>
       <Html>
@@ -47,6 +47,15 @@ const SignUpVerificationEmail = ({
             >
               Verify your email
             </Link>
+
+            <Text>
+              This link will be expired in
+              <span className="text-secondary-400 font-semibold">
+                {' '}
+                {`${expiresAt}`}{' '}
+              </span>
+              minutes
+            </Text>
 
             <Text>
               If you didn't request this, you can ignore this message.

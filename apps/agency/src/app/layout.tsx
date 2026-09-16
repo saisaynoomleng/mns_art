@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { SanityLive } from '@/sanity/live';
 import { albert_sans, shadows, unbounded } from '@/lib/fonts';
+import { Toaster } from '@mnsart/ui';
 
 export const metadata: Metadata = {
   title: {
@@ -21,6 +22,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
       <body>
         {children}
 
+        <Toaster richColors closeButton position="bottom-center" />
         <SanityLive />
       </body>
     </html>

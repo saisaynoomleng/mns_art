@@ -402,10 +402,19 @@ export type ROOT_LAYOUT_SEO_QUERY_RESULT = {
   description: string | null;
 } | null;
 
+// Source: src/sanity/query.ts
+// Variable: CONTACT_US_PAGE_SEO_QUERY
+// Query: *[_type == 'page' && slug.current == 'contact-us-page' && type == 'main'][0]{  "title": seo.metaTitle,  "description": seo.metaDescription }
+export type CONTACT_US_PAGE_SEO_QUERY_RESULT = {
+  title: string | null;
+  description: string | null;
+} | null;
+
 // Query TypeMap
 declare global {
   interface SanityQueries {
     '*[_type == \'siteSetting\'][0]{\n  "title": seo.metaTitle,\n  "description": seo.metaDescription\n}': ROOT_LAYOUT_SEO_QUERY_RESULT;
+    "*[_type == 'page'\n && slug.current == 'contact-us-page'\n && type == 'main'][0]{\n  \"title\": seo.metaTitle,\n  \"description\": seo.metaDescription\n }": CONTACT_US_PAGE_SEO_QUERY_RESULT;
   }
 }
 // Lets @sanity/client releases that predate the global registry read it too

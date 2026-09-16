@@ -8,6 +8,7 @@ import {
   Head,
   Preview,
   Heading,
+  render,
 } from 'react-email';
 
 import React from 'react';
@@ -23,7 +24,7 @@ const ContactEamil = (): React.JSX.Element => {
           <title>Contact Eamil</title>
         </Head>
 
-        <Body className="bg-brand_black text-brand_white font-body leading-normal tracking-normal overflow-x-hidden">
+        <Body className="bg-brand_black text-brand_white font-body leading-normal tracking-normal overflow-x-hidden px-4">
           <Preview>We got your note — reply coming within 1-2 days.</Preview>
 
           <Container className="mx-auto max-w-160">
@@ -60,3 +61,7 @@ const ContactEamil = (): React.JSX.Element => {
 };
 
 export default ContactEamil;
+
+export const renderContactEmail = async (): Promise<string> => {
+  return await render(<ContactEamil />);
+};

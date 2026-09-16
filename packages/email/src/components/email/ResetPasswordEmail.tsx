@@ -26,9 +26,9 @@ const ResetPasswordEmail = ({
           <title>Reset Password Email</title>
         </Head>
 
-        <Body className="text-brand_white bg-brand_black leading-normal tracking-normal overflow-hidden font-body">
+        <Body className="text-brand_white bg-brand_black leading-normal tracking-normal overflow-x-hidden font-body">
           <Preview>
-            Reset your password — link expires in {`${expiresAt} minutes`}.
+            Reset your password — Your code expires in {`${expiresAt} minutes`}.
           </Preview>
 
           <Container className="mx-auto max-w-160">
@@ -41,7 +41,7 @@ const ResetPasswordEmail = ({
 
               <Text>
                 We received a request to reset your password. Check below to
-                choose a new one — the OTP is good for
+                choose a new one — the OTP is valid for the next
                 <span className="text-secondary-400 font-semibold">
                   {' '}
                   {`${expiresAt}`}{' '}
@@ -60,6 +60,7 @@ const ResetPasswordEmail = ({
 
               <Text>
                 For your security, this OTP expires soon and works only once.
+                Never share this code with anyone, including us.
               </Text>
             </Section>
 

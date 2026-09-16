@@ -22,7 +22,7 @@ const NewsletterEmail = (): React.JSX.Element => {
           <title>MNS Art Newsletter</title>
         </Head>
 
-        <Body className="bg-brand_black text-brand_white font-body leading-normal tracking-normal overflow-hidden">
+        <Body className="bg-brand_black text-brand_white font-body leading-normal tracking-normal overflow-x-hidden">
           <Preview>
             Welcome aboard — here's what to expect in your inbox.
           </Preview>

@@ -34,7 +34,7 @@ const ReceiptEmail = ({
           <title>Receipt Email</title>
         </Head>
 
-        <Body className="bg-brand_black text-brand_white overflow-hidden leading-normal tracking-normal font-body">
+        <Body className="bg-brand_black text-brand_white overflow-x-hidden leading-normal tracking-normal font-body">
           <Preview>A copy of your payment, for your records</Preview>
 
           <Container className="mx-auto max-w-160">

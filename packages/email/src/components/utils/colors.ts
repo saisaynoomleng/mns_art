@@ -90,6 +90,6 @@ export const colors = {
     '900': '#254226',
     '950': '#102311',
   },
-  black: '#191923',
-  white: '#fbfef9',
+  brand_black: '#191923',
+  brand_white: '#fbfef9',
 };

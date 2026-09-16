@@ -140,3 +140,15 @@ export const formatPriceInUSD = (price: number): string => {
     currency: 'usd',
   }).format(price);
 };
+
+/**
+ * Replace underscore in a string with replacement, default to whitespace(' ')
+ * @param input string
+ * @param replacement string
+ * @returns string
+ * @example replaceUnderscore('foo_bar', ' ') // 'foo bar'
+ * @example replaceUnderscore('foo_bar', '*') // 'foo*bar'
+ */
+export const replaceUnderscore = (input: string, replacement = ' '): string => {
+  return input.replace(/_/g, replacement);
+};

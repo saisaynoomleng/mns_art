@@ -1,8 +1,8 @@
 'use client';
 
 import React from 'react';
-import { Field, FieldError, FieldLabel } from '#components/ui/field';
-import { Controller, SubmitHandler, useForm } from 'react-hook-form';
+import { Field } from '#components/ui/field';
+import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import {
   ActionResponse,
@@ -13,7 +13,7 @@ import { clsx, twMerge } from 'cn';
 import { toast } from 'sonner';
 import { ArrowButton, SectionTitle } from '../../shared';
 import { FormContainer } from '#components/shared/FormContainer/FormContainer';
-import { Input } from '#components/ui/input';
+import { FormTextField } from '../FormTextField';
 
 type NewsletterFormProps = {
   className?: string;
@@ -69,22 +69,12 @@ export const NewsletterForm = ({
           </p>
         </div>
 
-        <Controller
+        <FormTextField
           name="email"
+          label="Email"
+          type="email"
+          autoComplete="email"
           control={form.control}
-          render={({ field, fieldState }) => (
-            <Field>
-              <FieldLabel htmlFor="email">Email</FieldLabel>
-              <Input
-                {...field}
-                type="email"
-                id="email"
-                placeholder="johndoe@example.com"
-                aria-invalid={fieldState.invalid}
-              />
-              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
-            </Field>
-          )}
         />
 
         <Field orientation="horizontal">

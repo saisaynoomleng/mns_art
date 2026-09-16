@@ -54,7 +54,7 @@ export const FilledForm: Story = {
     const email = canvas.getByLabelText(/email/i);
     const password = canvas.getByLabelText('Password');
     const confirmPassword = canvas.getByLabelText(/confirm password/i);
-    const submit = canvas.getByText('Sign Up Now');
+    const submit = canvas.getByTestId('sign up');
 
     await expect(name).toBeInTheDocument();
     await expect(email).toBeInTheDocument();

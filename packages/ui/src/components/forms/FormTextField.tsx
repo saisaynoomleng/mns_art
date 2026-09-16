@@ -4,7 +4,7 @@ import {
   FieldError,
   FieldDescription,
 } from '#components/ui/field';
-import React from 'react';
+import React, { ComponentPropsWithoutRef } from 'react';
 import { Control, Controller, FieldValues, Path } from 'react-hook-form';
 import { Input } from '../ui';
 
@@ -15,7 +15,7 @@ type FormTextFieldProps<T extends FieldValues> = {
   description?: string;
   autoComplete?: string;
   type?: React.HTMLInputTypeAttribute;
-};
+} & Omit<ComponentPropsWithoutRef<'input'>, 'name' | 'autoComplete' | 'type'>;
 
 export const FormTextField = <T extends FieldValues>({
   control,
@@ -24,6 +24,7 @@ export const FormTextField = <T extends FieldValues>({
   description,
   type = 'text',
   autoComplete,
+  ...props
 }: FormTextFieldProps<T>) => {
   return (
     <Controller
@@ -31,7 +32,9 @@ export const FormTextField = <T extends FieldValues>({
       control={control}
       render={({ field, fieldState }) => (
         <Field>
-          <FieldLabel htmlFor={name}>{label}</FieldLabel>
+          <FieldLabel htmlFor={name} className="capitalize">
+            {label}
+          </FieldLabel>
 
           {description && <FieldDescription>{description}</FieldDescription>}
 
@@ -41,6 +44,7 @@ export const FormTextField = <T extends FieldValues>({
             id={name}
             autoComplete={autoComplete}
             aria-invalid={fieldState.invalid}
+            {...props}
           />
 
           {fieldState.invalid && <FieldError errors={[fieldState.error]} />}

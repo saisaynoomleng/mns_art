@@ -17,7 +17,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
   return (
     <html
       lang="en"
-      className={`${shadows.variable} ${unbounded.variable} ${albert_sans.variable}  min-h-full antialiased`}
+      className={`${shadows.variable} ${unbounded.variable} ${albert_sans.variable} antialiased`}
     >
       <body>
         {children}

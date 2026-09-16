@@ -15,20 +15,23 @@
   "dependencies": {
     "@aws-sdk/client-ses": "^3.1133.0",
     "@epic-web/remember": "^1.1.0",
+    "@mnsart/email": "workspace:*",
     "@mnsart/ui": "workspace:*",
     "@mnsart/utils": "workspace:*",
-    "@mnsart/email": "workspace:*",
     "@sanity/cli": "^8.11.0",
     "@sanity/client": "^8.6.1",
     "@sanity/image-url": "^2.1.1",
     "better-auth": "^1.7.4",
+    "clsx": "^2.1.1",
     "dotenv": "^17.4.2",
     "drizzle-orm": "1.0.0-rc.4",
     "next": "16.3.5",
     "next-sanity": "^13.3.4",
     "pg": "^8.23.0",
     "react": "^19.3.0",
-    "react-dom": "^19.3.0"
+    "react-dom": "^19.3.0",
+    "react-icons": "^5.7.0",
+    "tailwind-merge": "^3.7.0"
   },
   "devDependencies": {
     "@t3-oss/env-nextjs": "^0.13.11",

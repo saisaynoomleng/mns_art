@@ -7,3 +7,4 @@ export * from './input-otp';
 export * from './sonner';
 export * from './select';
 export * from './checkbox';
+export * from './separator';

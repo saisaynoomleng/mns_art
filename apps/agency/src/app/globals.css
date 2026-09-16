@@ -16,3 +16,16 @@
     @apply font-albert-sans text-fs-400 overflow-x-hidden min-h-screen leading-normal tracking-normal bg-background text-foreground;
   }
 }
+
+@utility header-component {
+  clip-path: polygon(
+    0% 0.8%,
+    95.5% 0%,
+    100% 20%,
+    100% 80%,
+    95.5% 100%,
+    0% 100%,
+    0% 80%,
+    0% 20%
+  );
+}

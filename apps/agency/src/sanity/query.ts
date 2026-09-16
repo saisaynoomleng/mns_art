@@ -14,3 +14,16 @@ export const CONTACT_US_PAGE_SEO_QUERY = defineQuery(`*[_type == 'page'
   "title": seo.metaTitle,
   "description": seo.metaDescription
  }`);
+
+// =======================
+// Data
+// =======================
+export const NAV_LINKS_QUERY = defineQuery(`*[_type == 'siteSetting'][0]{
+  navLinks[]{
+    _key,
+    label,
+    isButton,
+    isExternal,
+    href
+  }
+}`);

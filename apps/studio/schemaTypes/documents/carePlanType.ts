@@ -54,6 +54,12 @@ export const carePlanType = defineType({
       of: [{ type: 'string' }],
       validation: (rule) => rule.required(),
     }),
+    defineField({
+      name: 'isPremium',
+      type: 'boolean',
+      initialValue: false,
+      validation: (rule) => rule.required(),
+    }),
   ],
   preview: {
     select: {

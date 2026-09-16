@@ -52,8 +52,8 @@
   --radius: 0.625rem;
   --background: var(--color-brand-black);
   --foreground: var(--color-brand-white);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
+  --card: var(--color-brand-black);
+  --card-foreground: var(--color-brand-white);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
   --primary: var(--color-brand-primary-400);
@@ -266,4 +266,10 @@
     2% 100%,
     0% 85%
   );
+}
+
+@utility brand-box-shadow {
+  box-shadow: 6px 2px 0px 0px rgba(241, 67, 162, 0.75);
+  -webkit-box-shadow: 6px 2px 0px 0px rgba(241, 67, 162, 0.75);
+  -moz-box-shadow: 6px 2px 0px 0px rgba(241, 67, 162, 0.75);
 }

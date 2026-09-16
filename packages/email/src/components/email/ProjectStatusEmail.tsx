@@ -1,4 +1,8 @@
-import { ProjectStatus, replaceUnderscore, toTitleCase } from '@mnsart/utils';
+import {
+  ProjectStatusType,
+  replaceUnderscore,
+  toTitleCase,
+} from '@mnsart/utils';
 import React from 'react';
 import {
   Tailwind,
@@ -22,12 +26,12 @@ type ProjectBody = {
 };
 
 type ProjectStatusEmailProp = {
-  status: ProjectStatus;
+  status: ProjectStatusType;
   projectName: string;
   clientName: string;
 };
 
-const projectStatus: Record<ProjectStatus, ProjectBody> = {
+const projectStatus: Record<ProjectStatusType, ProjectBody> = {
   on_call: {
     body: `We're on the line together, sketching out what this project should become.`,
     preview: `We're sketching out the direction together.`,

@@ -10,6 +10,7 @@ import {
 } from '@/db/schema';
 import { admin, emailOTP } from 'better-auth/plugins';
 import { nextCookies } from 'better-auth/next-js';
+import { handleSignUpVerification } from '@/actions/handleSignUpVerfication';
 
 export const auth = betterAuth({
   plugins: [
@@ -110,7 +111,9 @@ export const auth = betterAuth({
     autoSignInAfterVerification: true,
     expiresIn: 60 * 15,
 
-    sendVerificationEmail: async ({ user, url }) => {},
+    sendVerificationEmail: async ({ user, url }) => {
+      void handleSignUpVerification({ user, url });
+    },
   },
 
   emailAndPassword: {

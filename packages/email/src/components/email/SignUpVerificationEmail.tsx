@@ -8,6 +8,7 @@ import {
   Preview,
   Heading,
   Link,
+  render,
 } from 'react-email';
 import tailwindConfig from '../utils/tailwindConfig';
 import { LinkEmail } from '../utils/LinkEmail';
@@ -25,7 +26,7 @@ const SignUpVerificationEmail = ({
           <title>Sign Up Verification Email</title>
         </head>
 
-        <Body className="bg-brand_black text-brand_white font-body leading-normal tracking-normal overflow-x-hidden">
+        <Body className="bg-brand_black text-brand_white font-body leading-normal tracking-normal overflow-x-hidden px-2">
           <Preview>Verify your email to finish signing up.</Preview>
 
           <Container className="mx-auto max-w-160">
@@ -75,3 +76,12 @@ const SignUpVerificationEmail = ({
 };
 
 export default SignUpVerificationEmail;
+
+export const renderSignUpVerificationEmail = async ({
+  url,
+  expiresAt = 15,
+}: SignUpVerificationType) => {
+  return await render(
+    <SignUpVerificationEmail url={url} expiresAt={expiresAt} />,
+  );
+};

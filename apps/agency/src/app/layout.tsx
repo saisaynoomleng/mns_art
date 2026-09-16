@@ -18,6 +18,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
     <html
       lang="en"
       className={`${shadows.variable} ${unbounded.variable} ${albert_sans.variable} antialiased`}
+      data-scroll-behavior="smooth"
     >
       <body>
         {children}

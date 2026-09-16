@@ -74,7 +74,7 @@ export const handleContactForm = async (
       message: 'Your Message Has Reached Us!',
     };
   } catch (error) {
-    console.error(JSON.stringify(error, null, 2));
+    console.error('Contact Form Error', JSON.stringify(error, null, 2));
 
     return {
       success: false,

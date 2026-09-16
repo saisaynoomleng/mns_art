@@ -28,6 +28,11 @@ export type ImageResponse =
   { success: true; file: File } | { success: false; message: string };
 
 /**
+ * OAuth Providers for BetterAuth OAuth sign in
+ */
+export type OAuthProviders = 'google' | 'github';
+
+/**
  * Password Rule
  */
 export type PasswordRule = {

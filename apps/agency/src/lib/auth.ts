@@ -25,7 +25,7 @@ export const auth = betterAuth({
       sendVerificationOnSignUp: true,
       overrideDefaultEmailVerification: true,
       otpLength: 6,
-      expiresIn: 60 * 5,
+      expiresIn: 60 * 15,
       changeEmail: {
         enabled: true,
       },

@@ -40,7 +40,7 @@ const NewsletterEmail = (): React.JSX.Element => {
                 along. Nothing more than that.
               </Text>
 
-              <Text>Confirms a new newsletter subscription.</Text>
+              <Text>You can unsubscribe any time — no hard feelings.</Text>
             </Section>
 
             <LinkEmail />

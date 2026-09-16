@@ -1,5 +1,5 @@
 import React from 'react';
-import { Section, Img, Link, Row, Column } from 'react-email';
+import { Section, Img, Link, Row, Column, Text } from 'react-email';
 import {
   FACEBOOK_LINK,
   FACEBOOK_PNG_URL,
@@ -9,42 +9,56 @@ import {
 
 export const LinkEmail = (): React.JSX.Element => {
   return (
-    <Section className="mx-auto mt-2 mb-8 w-fit">
-      <Row>
-        <Column className="pr-[20px] w-[20px]">
-          <Link
-            href={FACEBOOK_LINK}
-            className="block"
-            target="_blank"
-            rel="noreferrer nofollow"
-          >
-            <Img
-              src={FACEBOOK_PNG_URL}
-              alt="facebook logo png"
-              width={50}
-              height={50}
+    <Section className="">
+      <Section className="mt-2 w-fit" align="left">
+        <Row>
+          <Column className="w-[20px]">
+            <Link
+              href={FACEBOOK_LINK}
               className="block"
-            />
-          </Link>
-        </Column>
+              target="_blank"
+              rel="noreferrer nofollow"
+            >
+              <Img
+                src={FACEBOOK_PNG_URL}
+                alt="facebook logo png"
+                width={50}
+                height={50}
+                className="block"
+              />
+            </Link>
+          </Column>
 
-        <Column className="pr-[20px] w-[20px]">
-          <Link
-            href={GITHUB_LINK}
-            className="block"
-            target="_blank"
-            rel="noreferrer nofollow"
-          >
-            <Img
-              src={GITHUB_PNG_URL}
-              alt="github logo png"
-              width={50}
-              height={50}
+          <Column className="w-[20px]">
+            <Link
+              href={GITHUB_LINK}
               className="block"
-            />
-          </Link>
-        </Column>
-      </Row>
+              target="_blank"
+              rel="noreferrer nofollow"
+            >
+              <Img
+                src={GITHUB_PNG_URL}
+                alt="github logo png"
+                width={50}
+                height={50}
+                className="block"
+              />
+            </Link>
+          </Column>
+        </Row>
+      </Section>
+
+      <Section className="text-white/60">
+        <Text>
+          5000 Euclid Ave, Apt 206
+          <br />
+          Cleveland, OH, 44103
+          <br />
+          United States
+        </Text>
+
+        {/* unsubscribe link */}
+      </Section>
     </Section>
   );
 };

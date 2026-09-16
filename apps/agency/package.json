@@ -17,6 +17,7 @@
     "@mnsart/ui": "workspace:*",
     "@mnsart/utils": "workspace:*",
     "@sanity/cli": "^8.11.0",
+    "@sanity/client": "^8.6.1",
     "@sanity/image-url": "^2.1.1",
     "better-auth": "^1.7.4",
     "dotenv": "^17.4.2",

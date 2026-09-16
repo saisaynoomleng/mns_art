@@ -109,6 +109,13 @@
           }
         },
         "optional": true
+      },
+      "isPremium": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "boolean"
+        },
+        "optional": true
       }
     }
   },

@@ -38,6 +38,9 @@ importers:
       '@sanity/cli':
         specifier: ^8.11.0
         version: 8.11.0(0769ec1c3b9aa25c577d3cca298ca78b)
+      '@sanity/client':
+        specifier: ^8.6.1
+        version: 8.6.1(vitest@5.0.0)
       '@sanity/image-url':
         specifier: ^2.1.1
         version: 2.1.1

@@ -23,7 +23,7 @@ const ContactEamil = (): React.JSX.Element => {
           <title>Contact Eamil</title>
         </Head>
 
-        <Body className="bg-brand_black text-brand_white font-body leading-normal tracking-normal overflow-hidden">
+        <Body className="bg-brand_black text-brand_white font-body leading-normal tracking-normal overflow-x-hidden">
           <Preview>We got your note — reply coming within 1-2 days.</Preview>
 
           <Container className="mx-auto max-w-160">

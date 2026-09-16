@@ -75,7 +75,7 @@ const ProjectStatusEmail = ({
           <title>Project Status Email</title>
         </Head>
 
-        <Body className="bg-brand_black text-brand_white font-body leading-normal tracking-normal overflow-hidden">
+        <Body className="bg-brand_black text-brand_white font-body leading-normal tracking-normal overflow-x-hidden">
           <Preview>{projectStatus[status].preview}</Preview>
 
           <Container className="mx-auto max-w-160">

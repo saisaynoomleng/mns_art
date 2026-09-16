@@ -71,3 +71,14 @@ export type SignUpVerificationType = {
   expiresAt: number;
   url: string;
 };
+
+/**
+ * Website Health Email Types
+ */
+export type WebsiteHealthType = {
+  projectName: string;
+  uptime: string;
+  responseTime: string;
+  errorCounts: number;
+  flaggedCounts: number;
+};

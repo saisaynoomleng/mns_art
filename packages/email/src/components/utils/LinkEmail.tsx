@@ -12,7 +12,7 @@ export const LinkEmail = (): React.JSX.Element => {
     <Section className="">
       <Section className="mt-2 w-fit" align="left">
         <Row>
-          <Column className="w-[20px]">
+          <Column className="w-5">
             <Link
               href={FACEBOOK_LINK}
               className="block"
@@ -29,7 +29,7 @@ export const LinkEmail = (): React.JSX.Element => {
             </Link>
           </Column>
 
-          <Column className="w-[20px]">
+          <Column className="w-5">
             <Link
               href={GITHUB_LINK}
               className="block"

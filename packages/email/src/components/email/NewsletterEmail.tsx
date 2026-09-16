@@ -27,11 +27,13 @@ const NewsletterEmail = (): React.JSX.Element => {
             Welcome aboard — here's what to expect in your inbox.
           </Preview>
 
-          <Container className="mx-auto max-w-[640px]">
+          <Container className="mx-auto max-w-160">
             <LogoEmail />
 
             <Section>
-              <Heading className="text-primary-400">You're on the list</Heading>
+              <Heading className="text-primary-400 font-heading">
+                You're on the list
+              </Heading>
 
               <Text>
                 Thanks for subscribing to the MNS Art newsletter. From here on,

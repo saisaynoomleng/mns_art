@@ -1,0 +1,33 @@
+import { env } from '@/lib/env/client';
+import Image from 'next/image';
+import Link from 'next/link';
+import { MainNav } from './MainNav';
+import { sanityFetch } from '@/sanity/live';
+import { NAV_LINKS_QUERY } from '@/sanity/query';
+
+export const Header = async (): Promise<React.JSX.Element> => {
+  const { data: navLinks } = await sanityFetch({
+    query: NAV_LINKS_QUERY,
+    perspective: 'published',
+    stega: false,
+  });
+
+  return (
+    <header className="flex items-center justify-between max-w-7xl mx-auto bg-brand-white/10 my-2 md:mt-4 px-4 py-2 overflow-hidden">
+      <div>
+        <Link href="/">
+          <Image
+            src={env.NEXT_PUBLIC_LOGO_URL}
+            alt=""
+            width={200}
+            height={50}
+            priority
+            className="min-w-full object-cover"
+          />
+        </Link>
+      </div>
+
+      <MainNav navLinks={navLinks} />
+    </header>
+  );
+};

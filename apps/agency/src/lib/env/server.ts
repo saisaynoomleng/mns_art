@@ -37,6 +37,12 @@ export const env = createEnv({
     GOOGLE_CLIENT_SECRET: z
       .string()
       .min(1, 'Google Client Secret must have at least 1 character'),
+
+    AWS_REGION: z.string().min(1, { error: 'AWS REGION is required' }),
+    AWS_ACCESS_KEY: z.string().min(1, { error: 'AWS ACCESS KEY is required' }),
+    AWS_SECRET_ACCESS_KEY: z
+      .string()
+      .min(1, { error: 'AWS secret access key is required' }),
   },
   runtimeEnv: {
     SANITY_READ_TOKEN: process.env.SANITY_READ_TOKEN,
@@ -52,6 +58,10 @@ export const env = createEnv({
     GITHUB_CLIENT_SECRET: process.env.GITHUB_CLIENT_SECRET,
     GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
     GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
+
+    AWS_REGION: process.env.AWS_REGION,
+    AWS_ACCESS_KEY: process.env.AWS_ACCESS_KEY,
+    AWS_SECRET_ACCESS_KEY: process.env.AWS_SECRET_ACCESS_KEY,
   },
   skipValidation: !!process.env.SKIP_VALIDATION,
 });

@@ -6,15 +6,16 @@ export const env = createEnv({
   client: {
     NEXT_PUBLIC_SANITY_PROJECT_ID: z
       .string()
-      .min(1, 'Sanity Project ID must have at least 1 character'),
+      .min(1, { error: 'Sanity Project ID must have at least 1 character' }),
     NEXT_PUBLIC_SANITY_DATASET: z
       .enum(['production', 'development'])
       .default('production'),
     NEXT_PUBLIC_APP_STAGE: z.enum(['dev', 'prod']),
-    NEXT_PUBLIC_APP_URL: z.url('Must be a valid URL'),
+    NEXT_PUBLIC_APP_URL: z.url({ error: 'Must be a valid URL' }),
     NEXT_PUBLIC_SANITY_API_VERSION: z
       .string()
-      .min(1, 'Sanity API verison is required'),
+      .min(1, { error: 'Sanity API verison is required' }),
+    NEXT_PUBLIC_LOGO_URL: z.url({ error: 'Must be a valid URL' }),
   },
   runtimeEnv: {
     NEXT_PUBLIC_SANITY_PROJECT_ID: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
@@ -22,5 +23,6 @@ export const env = createEnv({
     NEXT_PUBLIC_APP_STAGE: process.env.NEXT_PUBLIC_APP_STAGE,
     NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
     NEXT_PUBLIC_SANITY_API_VERSION: process.env.NEXT_PUBLIC_SANITY_API_VERSION,
+    NEXT_PUBLIC_LOGO_URL: process.env.NEXT_PUBLIC_LOGO_URL,
   },
 });

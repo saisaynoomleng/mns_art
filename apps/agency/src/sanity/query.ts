@@ -86,3 +86,17 @@ export const ALL_PRICING_QUERY = defineQuery(`{
             "description": seo.metaDescription
           }
 }`);
+
+export const PRICING_DETAIL_QUERY = defineQuery(`*[_type == 'carePlan'
+ && slug.current == $slug][0]{
+  name,
+  'inclusives': inclusive[]{
+    _key,
+    title,
+    body
+  },
+  'exclusives': exclusive[],
+  pricePerMonth,
+  "seoTitle": seo.metaTitle,
+  "seoDescription": seo.metaDescription
+}`);

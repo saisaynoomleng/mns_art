@@ -1,5 +1,6 @@
 @import '@mnsart/ui/styles';
 @source '../../../../packages/ui/**/*.{js,ts,jsx,tsx}';
+@plugin '@tailwindcss/typography';
 
 @theme {
   /* font families */

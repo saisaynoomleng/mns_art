@@ -13,7 +13,7 @@ export const Header = async (): Promise<React.JSX.Element> => {
   });
 
   return (
-    <header className="flex items-center justify-between max-w-7xl mx-auto bg-brand-white/10 my-2 md:mt-4 px-4 py-2 overflow-hidden">
+    <header className="flex items-center justify-between mx-4 md:mx-8 max-w-7xl lg:mx-auto bg-brand-primary-400/10 my-2 md:mt-4 px-4 py-2 overflow-hidden">
       <div>
         <Link href="/">
           <Image

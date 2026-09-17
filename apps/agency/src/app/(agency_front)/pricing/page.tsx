@@ -1,7 +1,11 @@
-import React from 'react';
+import { Bounded, SectionTitle } from '@mnsart/ui';
 
 const PricingPage = () => {
-  return <div>PricingPage</div>;
+  return (
+    <Bounded>
+      <SectionTitle label="What we offer right now!" />
+    </Bounded>
+  );
 };
 
 export default PricingPage;

@@ -100,3 +100,59 @@ export type SignInFormInput = z.input<typeof SignInFormSchema>;
  * Sign In Form Ouput Types
  */
 export type SignInFormOutput = z.output<typeof SignInFormSchema>;
+
+//========================
+//BetterAuth Password Reset
+//========================
+/**
+ * Validate Request Password Reset Form Schema
+ */
+export const RequestPasswordResetEmailFormSchema = z.object({
+  email: z
+    .email({ error: 'Must be a valid email address' })
+    .min(1, { error: 'Email is required' }),
+});
+/**
+ * Request Password Reset Form Input
+ */
+export type RequestPasswordResetEmailFormInput = z.input<
+  typeof RequestPasswordResetEmailFormSchema
+>;
+
+/**
+ * Validate Request Passowrd OTP Form Schema
+ */
+export const RequestPasswordResetOTPFormSchema =
+  RequestPasswordResetEmailFormSchema.extend({
+    otp: z.string().length(6, { error: 'OTP must have 6 digits' }),
+  });
+/**
+ * Request OTP Form Input type
+ */
+export type RequestPasswordOTPFormInput = z.input<
+  typeof RequestPasswordResetOTPFormSchema
+>;
+
+/**
+ * Validate Request Set New Password Form Schema
+ */
+export const SetNewPasswordFormSchema =
+  RequestPasswordResetOTPFormSchema.extend({
+    password: PasswordSchema,
+    confirmPassword: z.string(),
+  }).refine((data) => data.password === data.confirmPassword, {
+    error: 'Password must match',
+    path: ['confirmPassword'],
+  });
+
+/**
+ * Validate  New Password Form Input Type
+ */
+export type SetNewPasswordFormInput = z.input<typeof SetNewPasswordFormSchema>;
+
+/**
+ * Validate  New Password Form
+ */
+export type SetNewPasswordFormOutput = z.output<
+  typeof SetNewPasswordFormSchema
+>;

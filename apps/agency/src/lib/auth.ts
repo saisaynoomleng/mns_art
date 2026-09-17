@@ -49,9 +49,7 @@ export const auth = betterAuth({
       email: 'email',
       image: 'imageUrl',
     },
-    changeEmail: {
-      enabled: true,
-    },
+
     deleteUser: {
       enabled: true,
 

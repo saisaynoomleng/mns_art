@@ -128,13 +128,11 @@ export const CarePlanCard = ({
       </CardContent>
 
       <CardFooter className="mt-auto">
-        <CardAction className="mx-auto">
-          <ArrowButton
-            asChild={true}
-            label={renderAction({ label: action.label, href: action.href })}
-            className=""
-          />
-        </CardAction>
+        <ArrowButton
+          asChild={true}
+          label={renderAction({ label: action.label, href: action.href })}
+          className="mx-auto"
+        />
       </CardFooter>
     </Card>
   );

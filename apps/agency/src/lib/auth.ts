@@ -11,6 +11,7 @@ import {
 import { admin, emailOTP } from 'better-auth/plugins';
 import { nextCookies } from 'better-auth/next-js';
 import { handleSignUpVerification } from '@/actions/handleSignUpVerfication';
+import { handleResetPasswordEmail } from '@/actions/handleResetPasswordEmail';
 
 export const auth = betterAuth({
   plugins: [
@@ -18,7 +19,7 @@ export const auth = betterAuth({
     emailOTP({
       sendVerificationOTP: async ({ email, otp, type }) => {
         if (type === 'forget-password') {
-          // send forget password otp
+          void handleResetPasswordEmail({ email, otp, type });
         } else if (type === 'change-email') {
           // send change email otp
         }

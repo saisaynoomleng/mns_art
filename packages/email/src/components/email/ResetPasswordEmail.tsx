@@ -9,6 +9,7 @@ import {
   Head,
   Preview,
   Heading,
+  render,
 } from 'react-email';
 import tailwindConfig from '../utils/tailwindConfig';
 import { ResetPasswordType } from '@mnsart/utils';
@@ -73,3 +74,10 @@ const ResetPasswordEmail = ({
 };
 
 export default ResetPasswordEmail;
+
+export const renderResetPasswordEmail = async ({
+  otp,
+  expiresAt = 15,
+}: ResetPasswordType) => {
+  return await render(ResetPasswordEmail({ otp, expiresAt }));
+};

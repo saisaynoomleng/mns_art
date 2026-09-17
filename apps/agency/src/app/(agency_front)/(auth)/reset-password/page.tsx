@@ -7,13 +7,16 @@ import {
   RequestPasswordResetEmailFormInput,
   SetNewPasswordFormInput,
 } from '@mnsart/utils';
+import { useRouter } from 'next/navigation';
 import React from 'react';
 
 const ResetPassword = (): React.JSX.Element => {
+  const router = useRouter();
+
   const handleRequestEmail = async (
     data: RequestPasswordResetEmailFormInput,
   ) => {
-    await authClient.requestPasswordReset(
+    await authClient.emailOtp.requestPasswordReset(
       {
         email: data.email,
       },
@@ -33,10 +36,6 @@ const ResetPassword = (): React.JSX.Element => {
         type: 'forget-password',
       },
       {
-        onSuccess: () => {
-          toast.success('Password updated!');
-        },
-
         onError: (ctx) => {
           toast.error(ctx.error.message);
         },
@@ -52,6 +51,10 @@ const ResetPassword = (): React.JSX.Element => {
         password: data.password,
       },
       {
+        onSuccess: () => {
+          toast.success('Password updated!');
+          router.push('/sign-in');
+        },
         onError: (ctx) => {
           toast.error(ctx.error.message);
         },

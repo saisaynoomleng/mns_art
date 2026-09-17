@@ -65,6 +65,7 @@ export const siteSetting = defineType({
     defineField({
       name: 'contactInfo',
       type: 'object',
+      group: 'footer',
       fields: [
         defineField({
           name: 'street',

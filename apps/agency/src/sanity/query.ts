@@ -44,3 +44,21 @@ export const ALL_COMPANY_PAGES = defineQuery(`*[_type == 'page'
  ]{
   "slug": slug.current,
  }`);
+
+export const FOOTER_QUERY = defineQuery(`*[_type == 'siteSetting'][0]{
+  "columns": footerColumns[]{
+    _key,
+    links[]{
+      _key,
+      href,
+      label
+    },
+    title
+  },
+  "text": footerText,
+  "street": contactInfo.street,
+  "city": contactInfo.city,
+  "state": contactInfo.state,
+  "country": contactInfo.country,
+  "zip": contactInfo.zip,
+}`);

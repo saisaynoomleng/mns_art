@@ -440,6 +440,27 @@ export type ALL_COMPANY_PAGES_RESULT = Array<{
   slug: string | null;
 }>;
 
+// Source: src/sanity/query.ts
+// Variable: FOOTER_QUERY
+// Query: *[_type == 'siteSetting'][0]{  "columns": footerColumns[]{    _key,    links[]{      _key,      href,      label    },    title  },  "text": footerText,  "street": contactInfo.street,  "city": contactInfo.city,  "state": contactInfo.state,  "country": contactInfo.country,  "zip": contactInfo.zip,}
+export type FOOTER_QUERY_RESULT = {
+  columns: Array<{
+    _key: string;
+    links: Array<{
+      _key: string;
+      href: string | null;
+      label: string | null;
+    }> | null;
+    title: string | null;
+  }> | null;
+  text: string | null;
+  street: string | null;
+  city: string | null;
+  state: string | null;
+  country: string | null;
+  zip: string | null;
+} | null;
+
 // Query TypeMap
 declare global {
   interface SanityQueries {
@@ -448,6 +469,7 @@ declare global {
     "*[_type == 'siteSetting'][0]{\n  navLinks[]{\n    _key,\n    label,\n    isButton,\n    isExternal,\n    href\n  }\n}": NAV_LINKS_QUERY_RESULT;
     '*[_type == \'page\'\n && defined(slug.current)\n && type == \'utility\'\n && slug.current == $slug][0]{\n  body,\n  "slug": slug.current,\n  "seoTitle": seo.metaTitle,\n  "seoDescription": seo.metaDescription\n }': COMPANY_PAGE_QUERY_RESULT;
     "*[_type == 'page'\n && defined(slug.current)\n && type == 'utility'\n ]{\n  \"slug\": slug.current,\n }": ALL_COMPANY_PAGES_RESULT;
+    '*[_type == \'siteSetting\'][0]{\n  "columns": footerColumns[]{\n    _key,\n    links[]{\n      _key,\n      href,\n      label\n    },\n    title\n  },\n  "text": footerText,\n  "street": contactInfo.street,\n  "city": contactInfo.city,\n  "state": contactInfo.state,\n  "country": contactInfo.country,\n  "zip": contactInfo.zip,\n}': FOOTER_QUERY_RESULT;
   }
 }
 // Lets @sanity/client releases that predate the global registry read it too

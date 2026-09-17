@@ -7,11 +7,14 @@ type BoundedProp<T extends React.ElementType> = {
   padding?: Padding;
   spacing?: Spacing;
   children: React.ReactNode;
+  size?: Size;
 } & Omit<ComponentPropsWithoutRef<T>, 'classname' | 'as'>;
 
 type Padding = 'none' | 'sm' | 'md' | 'lg';
 
 type Spacing = 'none' | 'sm' | 'md' | 'lg';
+
+type Size = 'sm' | 'md' | 'full';
 
 const paddingVariants: Record<Padding, string> = {
   none: '',
@@ -27,12 +30,19 @@ const spacingVariants: Record<Spacing, string> = {
   lg: 'space-y-10 md:space-y-12 lg:space-y-16',
 };
 
+const sizeVariants: Record<Size, string> = {
+  sm: 'max-w-4xl',
+  md: 'max-w-7xl',
+  full: 'max-w-none',
+};
+
 export const Bounded = <T extends React.ElementType>({
   className,
   as,
   padding = 'sm',
   children,
   spacing = 'none',
+  size = 'md',
   ...props
 }: BoundedProp<T>) => {
   const Comp = as ?? 'section';
@@ -42,9 +52,10 @@ export const Bounded = <T extends React.ElementType>({
       data-testid="wrapper"
       className={twMerge(
         clsx(
-          'py-4 md:py-6',
+          'py-4 md:py-6 mx-auto',
           paddingVariants[padding],
           spacingVariants[spacing],
+          sizeVariants[size],
           className,
         ),
       )}

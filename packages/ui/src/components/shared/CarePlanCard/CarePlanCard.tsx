@@ -47,46 +47,48 @@ export const CarePlanCard = ({
     <Card
       className={twMerge(
         clsx(
-          'flex flex-col gap-y-4 rounded-2xl border-2 border-brand-accent-500 bg-background  duration-200 transition-all max-w-100 hover:brand-box-shadow hover:border-primary',
+          'rounded-2xl border-2 border-brand-accent-500 bg-background  duration-200 transition-all max-w-100 hover:brand-box-shadow hover:border-primary',
           className,
         ),
       )}
     >
-      <CardHeader className="flex gap-x-6 items-center">
-        <div>
-          {isPremium ? (
-            <GiMermaid
-              color="#191923"
-              size={50}
-              aria-hidden
-              className="border-2 border-brand-black brand-box-shadow bg-secondary p-2"
-            />
-          ) : (
-            <SiMermaid
-              color="#191923"
-              size={50}
-              aria-hidden
-              className="border-2 border-brand-black brand-box-shadow bg-primary p-2"
-            />
-          )}
+      <CardHeader>
+        <div className="flex gap-x-6 items-center">
+          <div>
+            {isPremium ? (
+              <GiMermaid
+                color="#191923"
+                size={50}
+                aria-hidden
+                className="border-2 border-brand-black brand-box-shadow bg-secondary p-2"
+              />
+            ) : (
+              <SiMermaid
+                color="#191923"
+                size={50}
+                aria-hidden
+                className="border-2 border-brand-black brand-box-shadow bg-primary p-2"
+              />
+            )}
+          </div>
+
+          <div>
+            <CardTitle className="font-heading text-primary text-fs-600!">
+              {name}
+            </CardTitle>
+
+            <CardDescription className="text-muted-foreground">
+              {excerpt}
+            </CardDescription>
+          </div>
         </div>
 
-        <div>
-          <CardTitle className="font-heading text-primary text-fs-600!">
-            {name}
-          </CardTitle>
-
-          <CardDescription className="text-muted-foreground">
-            {excerpt}
-          </CardDescription>
-        </div>
-      </CardHeader>
-
-      <CardContent className="flex flex-col gap-y-2">
         <p className="font-heading text-primary text-fs-500">
           {formatPriceInUSD(pricePerMonth)}/month
         </p>
+      </CardHeader>
 
+      <CardContent className="flex flex-col gap-y-2">
         <Separator className="bg-brand-accent-400/30 my-2" />
 
         <div className="flex flex-col gap-y-2">
@@ -125,7 +127,7 @@ export const CarePlanCard = ({
         </div>
       </CardContent>
 
-      <CardFooter className="group-hover:border-primary transition-all duration-200">
+      <CardFooter className="mt-auto">
         <CardAction className="mx-auto">
           <ArrowButton
             asChild={true}

@@ -60,6 +60,11 @@ export const carePlanType = defineType({
       initialValue: false,
       validation: (rule) => rule.required(),
     }),
+    defineField({
+      name: 'seo',
+      type: 'seo',
+      validation: (rule) => rule.required(),
+    }),
   ],
   preview: {
     select: {

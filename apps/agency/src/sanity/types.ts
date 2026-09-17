@@ -461,6 +461,29 @@ export type FOOTER_QUERY_RESULT = {
   zip: string | null;
 } | null;
 
+// Source: src/sanity/query.ts
+// Variable: ALL_PRICING_QUERY
+// Query: {  "pricing": *[_type == 'carePlan'              && defined(slug.current)]              | order(isPremium asc){                _id,                name,                "slug": slug.current,                excerpt,                pricePerMonth,                "inclusives": inclusive[]{                  _key,                  title                },                "exclusives": exclusive[],                isPremium,              },  "seo": *[_type == 'page'          && slug.current == 'pricing-page'          && type == 'main'][0]{            "title": seo.metaTitle,            "description": seo.metaDescription          }}
+export type ALL_PRICING_QUERY_RESULT = {
+  pricing: Array<{
+    _id: string;
+    name: string | null;
+    slug: string | null;
+    excerpt: string | null;
+    pricePerMonth: number | null;
+    inclusives: Array<{
+      _key: string;
+      title: string | null;
+    }> | null;
+    exclusives: Array<string> | null;
+    isPremium: boolean | null;
+  }>;
+  seo: {
+    title: string | null;
+    description: string | null;
+  } | null;
+};
+
 // Query TypeMap
 declare global {
   interface SanityQueries {
@@ -470,6 +493,7 @@ declare global {
     '*[_type == \'page\'\n && defined(slug.current)\n && type == \'utility\'\n && slug.current == $slug][0]{\n  body,\n  "slug": slug.current,\n  "seoTitle": seo.metaTitle,\n  "seoDescription": seo.metaDescription\n }': COMPANY_PAGE_QUERY_RESULT;
     "*[_type == 'page'\n && defined(slug.current)\n && type == 'utility'\n ]{\n  \"slug\": slug.current,\n }": ALL_COMPANY_PAGES_RESULT;
     '*[_type == \'siteSetting\'][0]{\n  "columns": footerColumns[]{\n    _key,\n    links[]{\n      _key,\n      href,\n      label\n    },\n    title\n  },\n  "text": footerText,\n  "street": contactInfo.street,\n  "city": contactInfo.city,\n  "state": contactInfo.state,\n  "country": contactInfo.country,\n  "zip": contactInfo.zip,\n}': FOOTER_QUERY_RESULT;
+    '{\n  "pricing": *[_type == \'carePlan\'\n              && defined(slug.current)]\n              | order(isPremium asc){\n                _id,\n                name,\n                "slug": slug.current,\n                excerpt,\n                pricePerMonth,\n                "inclusives": inclusive[]{\n                  _key,\n                  title\n                },\n                "exclusives": exclusive[],\n                isPremium,\n              },\n  "seo": *[_type == \'page\'\n          && slug.current == \'pricing-page\'\n          && type == \'main\'][0]{\n            "title": seo.metaTitle,\n            "description": seo.metaDescription\n          }\n}': ALL_PRICING_QUERY_RESULT;
   }
 }
 // Lets @sanity/client releases that predate the global registry read it too

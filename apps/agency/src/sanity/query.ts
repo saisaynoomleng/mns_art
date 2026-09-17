@@ -62,3 +62,27 @@ export const FOOTER_QUERY = defineQuery(`*[_type == 'siteSetting'][0]{
   "country": contactInfo.country,
   "zip": contactInfo.zip,
 }`);
+
+export const ALL_PRICING_QUERY = defineQuery(`{
+  "pricing": *[_type == 'carePlan'
+              && defined(slug.current)]
+              | order(isPremium asc){
+                _id,
+                name,
+                "slug": slug.current,
+                excerpt,
+                pricePerMonth,
+                "inclusives": inclusive[]{
+                  _key,
+                  title
+                },
+                "exclusives": exclusive[],
+                isPremium,
+              },
+  "seo": *[_type == 'page'
+          && slug.current == 'pricing-page'
+          && type == 'main'][0]{
+            "title": seo.metaTitle,
+            "description": seo.metaDescription
+          }
+}`);

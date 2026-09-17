@@ -16,6 +16,10 @@ export const env = createEnv({
       .string()
       .min(1, { error: 'Sanity API verison is required' }),
     NEXT_PUBLIC_LOGO_URL: z.url({ error: 'Must be a valid URL' }),
+    NEXT_PUBLIC_GITHUB_URL: z.url({ error: 'Must ba a valid URL' }),
+    NEXT_PUBLIC_FACEBOOK_URL: z.url({ error: 'Must ba a valid URL' }),
+    NEXT_PUBLIC_NO_TEXT_LOGO_URL: z.url({ error: 'Must be a valid URL' }),
+    NEXT_PUBLIC_INLINE_LOGO_URL: z.url({ error: 'Must be a valid URL' }),
   },
   runtimeEnv: {
     NEXT_PUBLIC_SANITY_PROJECT_ID: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
@@ -24,5 +28,9 @@ export const env = createEnv({
     NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
     NEXT_PUBLIC_SANITY_API_VERSION: process.env.NEXT_PUBLIC_SANITY_API_VERSION,
     NEXT_PUBLIC_LOGO_URL: process.env.NEXT_PUBLIC_LOGO_URL,
+    NEXT_PUBLIC_GITHUB_URL: process.env.NEXT_PUBLIC_GITHUB_URL,
+    NEXT_PUBLIC_FACEBOOK_URL: process.env.NEXT_PUBLIC_FACEBOOK_URL,
+    NEXT_PUBLIC_NO_TEXT_LOGO_URL: process.env.NEXT_PUBLIC_NO_TEXT_LOGO_URL,
+    NEXT_PUBLIC_INLINE_LOGO_URL: process.env.NEXT_PUBLIC_INLINE_LOGO_URL,
   },
 });

@@ -423,12 +423,31 @@ export type NAV_LINKS_QUERY_RESULT = {
   }> | null;
 } | null;
 
+// Source: src/sanity/query.ts
+// Variable: COMPANY_PAGE_QUERY
+// Query: *[_type == 'page' && defined(slug.current) && type == 'utility' && slug.current == $slug][0]{  body,  "slug": slug.current,  "seoTitle": seo.metaTitle,  "seoDescription": seo.metaDescription }
+export type COMPANY_PAGE_QUERY_RESULT = {
+  body: BlockContent | null;
+  slug: string | null;
+  seoTitle: string | null;
+  seoDescription: string | null;
+} | null;
+
+// Source: src/sanity/query.ts
+// Variable: ALL_COMPANY_PAGES
+// Query: *[_type == 'page' && defined(slug.current) && type == 'utility' ]{  "slug": slug.current, }
+export type ALL_COMPANY_PAGES_RESULT = Array<{
+  slug: string | null;
+}>;
+
 // Query TypeMap
 declare global {
   interface SanityQueries {
     '*[_type == \'siteSetting\'][0]{\n  "title": seo.metaTitle,\n  "description": seo.metaDescription\n}': ROOT_LAYOUT_SEO_QUERY_RESULT;
     "*[_type == 'page'\n && slug.current == 'contact-us-page'\n && type == 'main'][0]{\n  \"title\": seo.metaTitle,\n  \"description\": seo.metaDescription\n }": CONTACT_US_PAGE_SEO_QUERY_RESULT;
     "*[_type == 'siteSetting'][0]{\n  navLinks[]{\n    _key,\n    label,\n    isButton,\n    isExternal,\n    href\n  }\n}": NAV_LINKS_QUERY_RESULT;
+    '*[_type == \'page\'\n && defined(slug.current)\n && type == \'utility\'\n && slug.current == $slug][0]{\n  body,\n  "slug": slug.current,\n  "seoTitle": seo.metaTitle,\n  "seoDescription": seo.metaDescription\n }': COMPANY_PAGE_QUERY_RESULT;
+    "*[_type == 'page'\n && defined(slug.current)\n && type == 'utility'\n ]{\n  \"slug\": slug.current,\n }": ALL_COMPANY_PAGES_RESULT;
   }
 }
 // Lets @sanity/client releases that predate the global registry read it too

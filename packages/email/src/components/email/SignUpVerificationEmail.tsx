@@ -81,7 +81,5 @@ export const renderSignUpVerificationEmail = async ({
   url,
   expiresAt = 15,
 }: SignUpVerificationType) => {
-  return await render(
-    <SignUpVerificationEmail url={url} expiresAt={expiresAt} />,
-  );
+  return await render(SignUpVerificationEmail({ url, expiresAt }));
 };

@@ -27,3 +27,20 @@ export const NAV_LINKS_QUERY = defineQuery(`*[_type == 'siteSetting'][0]{
     href
   }
 }`);
+
+export const COMPANY_PAGE_QUERY = defineQuery(`*[_type == 'page'
+ && defined(slug.current)
+ && type == 'utility'
+ && slug.current == $slug][0]{
+  body,
+  "slug": slug.current,
+  "seoTitle": seo.metaTitle,
+  "seoDescription": seo.metaDescription
+ }`);
+
+export const ALL_COMPANY_PAGES = defineQuery(`*[_type == 'page'
+ && defined(slug.current)
+ && type == 'utility'
+ ]{
+  "slug": slug.current,
+ }`);

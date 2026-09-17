@@ -29,7 +29,7 @@ const ResetPasswordEmail = ({
 
         <Body className="text-brand_white bg-brand_black leading-normal tracking-normal overflow-x-hidden font-body">
           <Preview>
-            Reset your password — Your code expires in {`${expiresAt} minutes`}.
+            Reset your password — Your OTP expires in {`${expiresAt} minutes`}.
           </Preview>
 
           <Container className="mx-auto max-w-160">

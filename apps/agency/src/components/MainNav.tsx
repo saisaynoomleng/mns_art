@@ -1,7 +1,7 @@
 'use client';
 
 import { notFound } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { IoMdCloseCircle } from 'react-icons/io';
 import { GoDotFill } from 'react-icons/go';
 import { Button, Separator } from '@mnsart/ui';
@@ -31,6 +31,14 @@ export const MainNav = ({ className, navLinks }: MainNavProps) => {
     `https://placehold.co/50?text=${session?.user?.name?.charAt(0)}`;
 
   const isPlaceholder = userImg.includes('placehold.co');
+
+  useEffect(() => {
+    document.body.style.overflowY = navOpen ? 'hidden' : '';
+
+    return () => {
+      document.body.style.overflowY = '';
+    };
+  }, [navOpen]);
 
   return (
     <div className={twMerge(clsx('', className))}>
@@ -90,7 +98,7 @@ export const MainNav = ({ className, navLinks }: MainNavProps) => {
       <nav
         className={clsx(
           'flex flex-col gap-y-1 justify-center items-center fixed inset-0 bg-brand-primary-400/10 backdrop-blur-2xl z-50 transition-transform duration-400',
-          navOpen ? 'translate-y-0' : '-translate-y-full',
+          navOpen ? 'translate-y-0' : 'translate-y-[-200%]',
         )}
       >
         {links?.map((l) => (
